@@ -1,0 +1,34 @@
+.main-container{
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: black;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.main-container__title{
+  font-size: 4rem;
+  margin: 4rem;
+  color: white;
+}
+.main-container__link{
+  width: auto;
+  min-height: 100%;
+  padding: 0.5rem;
+
+  text-decoration: none;
+  font-size: 2rem;
+
+  color: green;
+  border: 2px solid green;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+
+  &:hover{
+    background: green;
+    color: white;
+  }
+}
