@@ -1,0 +1,84 @@
+.SideNavbar-container{
+  width: 26vh;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: #000;
+
+  .SideNavbar-logo{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .SideNavbar-logo-img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+}
+
+.SideNavbar-main-list{
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.SideNavbar-list{
+  width: 100%;
+  height: fit-content;
+  margin-top: 0rem;
+  margin-right: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.SideNavbar-link{
+  width: 100%;
+  height: auto;
+  margin-bottom: 1.4rem;
+  padding: 0.5rem 0.5rem;
+
+  font-size: 1rem;
+  text-decoration: dashed;
+  text-transform: uppercase;
+  border-radius: 1rem;
+
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+
+  &:hover{
+    background: #fff;
+    color: #000;
+    transform: translateY(-0.25rem);
+  }
+
+  &.active{
+    background: #fff;
+    color: #000;
+  }
+
+  i{
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+  }
+}

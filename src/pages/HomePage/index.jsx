@@ -1,34 +1,16 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/AuthContext'
 import axios from 'axios'
 import CardMusic from '../../components/CardMusic'
 import './homePage.scss'
 
-
 function HomePage() {
-  const [token, setToken] = useState('')
+  const { token } = useContext(AuthContext)
+
+  const navigate = useNavigate()
   const [searchKey, setSearchKey] = useState('')
   const [artists, setArtists] = useState([])
-
-  useEffect(() => {
-    const hash = window.location.hash
-    let token = window.localStorage.getItem('token')
-
-    if(!token && hash) {
-      token = hash.substring(1).split('&').find(item => item.startsWith('access_token')).split('=')[1]
-      
-      window.location.hash = ''
-      window.localStorage.setItem('token', token)
-    }
-    setToken(token)
-
-  }, [])
-
-  const logout = () => {
-    setToken('')
-    window.localStorage.removeItem('token')
-
-  }
 
   const searchArtists = async (e) => {
     e.preventDefault()
@@ -38,29 +20,18 @@ function HomePage() {
       },
       params: {
         q: searchKey,
-        type: 'album,artist,playlist,track'
+        type: 'track,artist,album,playlist,show,episode'
       },
     })
 
     setArtists(data.artists.items)
+    // navigate('/search')
   }
+
+  console.log(artists)
 
   return (
     <div className='main-container'>
-      <h2 className='main-container__title'>Spot Clone</h2>
-
-      {!token ? 
-      <a
-        href={`${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=${import.meta.env.VITE_RESPONSE_TYPE}`}
-        className='main-container__link'
-        title='Login Please'
-      >
-        Login Please
-      </a>
-      : <button onClick={logout}>Logout</button>}
-
-
-
 
       {token ?
       <form onSubmit={searchArtists}>
@@ -75,7 +46,7 @@ function HomePage() {
           key={artist.id}
           id={artist.id}
           name={artist.name}
-          image={artist.images[0].url}
+          image={artist.images[0] ? artist.images[0].url : 'https://www.rockandpop.cl/wp-content/uploads/2020/04/spotify-logo-png-1.png'}
           followers={artist.followers.total}
           link={artist.external_urls.spotify}
         />
