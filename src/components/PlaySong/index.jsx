@@ -8,23 +8,6 @@ function PlaySong({ token, trackUri }) {
 
   if(!token) return null
 
-  // if (condition) {
-  //   return (
-  //     <SpotifyPlayer
-  //       token={token}
-  //       showSaveIcon
-  //       callback={state => {
-  //         if (!state.isPlaying) {
-  //           setPlaying(false)
-  //         }
-  //       }}
-  //       play={playing}
-  //       uri={uri} />
-  //   )
-  // } else {
-  //   return null
-  // }
-
   return (
     <SpotifyWebPlayer
       token={token}
