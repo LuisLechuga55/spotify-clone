@@ -115,7 +115,7 @@ function Navbar() {
       <button
         type='button'
         className='Navbar-btn__link'
-        onClick={handleLogin}
+        // onClick={handleLogin}
       >
         <a
           href={`${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=${import.meta.env.VITE_RESPONSE_TYPE}&show_dialog=true`}
@@ -137,7 +137,7 @@ function Navbar() {
       <Link
         href='/'
         className='Navbar-link-logout'
-        // onClick={handleLogout}
+        onClick={handleLogout}
       >
         Cerrar Sesion
       </Link>
