@@ -14,34 +14,34 @@ function Navbar() {
   }
 
   // `${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=${import.meta.env.VITE_RESPONSE_TYPE}`
-  const handleLogin = () => {
-    const url = import.meta.env.VITE_AUTH_ENDPOINT
-    const clientId = import.meta.env.VITE_CLIENT_ID
-    const redirectUri = import.meta.env.VITE_REDIRECT_URI
-    const responseType = import.meta.env.VITE_RESPONSE_TYPE
-    const scopes = [
-      'user-read-private',
-      'user-read-email',
-      'user-read-playback-state',
-      'user-modify-playback-state',
-      'user-read-currently-playing',
-      'streaming',
-      'app-remote-control',
-      'user-read-recently-played',
-      'user-top-read',
-      'playlist-read-private',
-      'playlist-read-collaborative',
-      'playlist-modify-public',
-      'playlist-modify-private',
-      'user-library-modify',
-      'user-library-read',
-      'user-follow-read',
-      'user-follow-modify',
-    ]
-    const scopesString = scopes.join('%20')
-    const urlToRedirect = `${url}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopesString}&response_type=${responseType}&show_dialog=true`
-    window.location = urlToRedirect
-  }
+  // const handleLogin = () => {
+  //   const url = import.meta.env.VITE_AUTH_ENDPOINT
+  //   const clientId = import.meta.env.VITE_CLIENT_ID
+  //   const redirectUri = import.meta.env.VITE_REDIRECT_URI
+  //   const responseType = import.meta.env.VITE_RESPONSE_TYPE
+  //   const scopes = [
+  //     'user-read-private',
+  //     'user-read-email',
+  //     'user-read-playback-state',
+  //     'user-modify-playback-state',
+  //     'user-read-currently-playing',
+  //     'streaming',
+  //     'app-remote-control',
+  //     'user-read-recently-played',
+  //     'user-top-read',
+  //     'playlist-read-private',
+  //     'playlist-read-collaborative',
+  //     'playlist-modify-public',
+  //     'playlist-modify-private',
+  //     'user-library-modify',
+  //     'user-library-read',
+  //     'user-follow-read',
+  //     'user-follow-modify',
+  //   ]
+  //   const scopesString = scopes.join('%20')
+  //   const urlToRedirect = `${url}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopesString}&response_type=${responseType}&show_dialog=true`
+  //   window.location = urlToRedirect
+  // }
 
   return (
   <header className='Navbar-container'>
@@ -118,7 +118,7 @@ function Navbar() {
         onClick={handleLogin}
       >
         <a
-          // href={`${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=${import.meta.env.VITE_RESPONSE_TYPE}&show_dialog=true`}
+          href={`${import.meta.env.VITE_AUTH_ENDPOINT}?client_id=${import.meta.env.VITE_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_REDIRECT_URI}&response_type=${import.meta.env.VITE_RESPONSE_TYPE}&show_dialog=true`}
           title='Login Please'
         >
           Iniciar Sesion
@@ -137,7 +137,7 @@ function Navbar() {
       <Link
         href='/'
         className='Navbar-link-logout'
-        onClick={handleLogout}
+        // onClick={handleLogout}
       >
         Cerrar Sesion
       </Link>
