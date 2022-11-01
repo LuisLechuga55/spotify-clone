@@ -5,7 +5,6 @@ import NavbarSide from '../components/NavbarSide'
 import Navbar from '../components/Navbar'
 import HomePage from '../pages/HomePage'
 import InitialPage from '../pages/InitialPage'
-import SingleMusic from '../pages/SingleMusic'
 import PerfilPage from '../pages/PerfilPage'
 import SearchPage from '../pages/SearchPage'
 
@@ -23,7 +22,6 @@ function Paths() {
         <Route path='/initial' element={<InitialPage />} />
         <Route path='/perfil' element={<PerfilPage />} />
         <Route path='/search' element={<SearchPage />} />
-        <Route path='/music' element={<SingleMusic />} />
       </Routes>
     </Router>
   )
