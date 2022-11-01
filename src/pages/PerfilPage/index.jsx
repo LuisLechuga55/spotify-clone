@@ -11,7 +11,7 @@ function PerfilPage() {
   useEffect(() => {
     const getUser = async () => {
       // https://api.spotify.com/v1/users/1140683843
-      const { data } = await axios.get(`https://api.spotify.com/v1/users/1140683843`, {
+      const { data } = await axios.get(`https://api.spotify.com/v1/me/`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -25,50 +25,43 @@ function PerfilPage() {
 
   console.log(user)
 
-  /**
-   * display_name
-   * followers.total
-   * href
-   * images[0].url
-   */
-
   return (
     <>
       <div className='perfilPage'>
         <div className='perfilPage-container'>
-          <div className='perfilPage-container-header'>
-            <div className='perfilPage-container-header-img'>
+            {/* <div className='perfilPage-container-header-img'>
               <img
                 src='https://i.scdn.co/image/ab6775700000ee85b2b2b2b2b2b2b2b2b2b2b2b2'
                 alt='perfil'
               />
-            </div>
-            <div className='perfilPage-container-header-info'>
-              <h1>Perfil</h1>
-              <p>Nombre de usuario</p>
-            </div>
-          </div>
+            </div> */}
           <div className='perfilPage-container-body'>
             <div className='perfilPage-container-body-info'>
-              <h2>Información</h2>
+
               <div className='perfilPage-container-body-info-data'>
-                <p>Nombre</p>
-                <p>Apellido</p>
-                <p>Correo</p>
-                <p>País</p>
-                <p>Fecha de nacimiento</p>
+                <h2>Información</h2>
+                <h4>{user.display_name}</h4>
+                
+                <div className='perfilPage-container-details'>
+                  <p>
+                  <i class="bi bi-envelope mx-2"/>
+                    {user.email}
+                  </p>
+
+                  <p>
+                    <i class="bi bi-globe mx-2"/>
+                    {user.country}
+                  </p>
+                  
+                  <p>
+                    <i class="bi bi-people mx-2"/>
+                    {user.followers? user.followers.total : 'No followers'}
+                  </p>
+                </div>
               </div>
+
             </div>
-            <div className='perfilPage-container-body-privacy'>
-              <h2>Privacidad</h2>
-              <div className='perfilPage-container-body-privacy-data'>
-                <p>Privacidad</p>
-                <p>Privacidad</p>
-                <p>Privacidad</p>
-                <p>Privacidad</p>
-                <p>Privacidad</p>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
