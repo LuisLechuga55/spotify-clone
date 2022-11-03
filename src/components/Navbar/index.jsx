@@ -4,6 +4,8 @@ import { AuthContext } from '../../context/AuthContext'
 import './navbar.scss'
 
 function Navbar() {
+  const redirectUri = 'http://127.0.0.1:5173/callback'
+
   const { token, logoutClient } = useContext(AuthContext)
   const navigate = useNavigate()
 
@@ -17,7 +19,6 @@ function Navbar() {
   const handleLogin = () => {
     const url = import.meta.env.VITE_AUTH_ENDPOINT
     const clientId = import.meta.env.VITE_CLIENT_ID
-    const redirectUri = import.meta.env.VITE_REDIRECT_URI
     const responseType = import.meta.env.VITE_RESPONSE_TYPE
     const scopes = [
       'user-read-private',
@@ -39,7 +40,7 @@ function Navbar() {
       'user-follow-modify',
     ]
     const scopesString = scopes.join('%20')
-    const urlToRedirect = `${url}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopesString}&response_type=${responseType}&show_dialog=true`
+    const urlToRedirect = `${url}?client_id=${clientId}&response_type=${responseType}&scope=${scopesString}&show_dialog=true&redirect_uri=${redirectUri}`
     window.location = urlToRedirect
   }
 
