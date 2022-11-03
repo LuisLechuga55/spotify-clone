@@ -4,7 +4,7 @@ import { AuthContext } from '../../context/AuthContext'
 import './navbar.scss'
 
 function Navbar() {
-  const redirectUri = 'https://spotify-clonelec.netlify.app/callback'
+  const redirectUri = 'https://spotify-clonelec.netlify.app/'
 
   const { token, logoutClient } = useContext(AuthContext)
   const navigate = useNavigate()
